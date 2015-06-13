@@ -1,14 +1,27 @@
 var React = require('react');
 var Router = require('react-router');
+var Link = Router.Link;
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
+
+var Header = React.createClass({
+  render() {
+    return (
+      <div className="header">
+        <div><Link to="index" >Index</Link></div>
+        <div><Link to="new" >New</Link></div>
+      </div>
+    );
+  }
+});
+
 
 var Root = React.createClass({
   render: function() {
     return (
         <div>
-          <p>header</p>
+          <Header />
           <RouteHandler/>
           <p>footer</p>
         </div>
@@ -28,8 +41,9 @@ var PathB = React.createClass({
 var AppRoutes = (
   <Route name="app" path="/" handler={Root}>
     <DefaultRoute handler={BookIndex}/>
-    <Route name="path-a" path="/path-a" handler={PathA} />
-    <Route name="path-b" path="/path-b" handler={PathB} />
+
+    <Route name="new" path="/new" handler={BookNew} />
+    <Route name="index" path="/index" handler={BookIndex} />
   </Route>
 );
 

@@ -1,15 +1,28 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var React = require('react');
 var Router = require('react-router');
+var Link = Router.Link;
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
+
+var Header = React.createClass({displayName: "Header",
+  render() {
+    return (
+      React.createElement("div", {className: "header"}, 
+        React.createElement("div", null, React.createElement(Link, {to: "index"}, "Index")), 
+        React.createElement("div", null, React.createElement(Link, {to: "new"}, "New"))
+      )
+    );
+  }
+});
+
 
 var Root = React.createClass({displayName: "Root",
   render: function() {
     return (
         React.createElement("div", null, 
-          React.createElement("p", null, "header"), 
+          React.createElement(Header, null), 
           React.createElement(RouteHandler, null), 
           React.createElement("p", null, "footer")
         )
@@ -29,8 +42,9 @@ var PathB = React.createClass({displayName: "PathB",
 var AppRoutes = (
   React.createElement(Route, {name: "app", path: "/", handler: Root}, 
     React.createElement(DefaultRoute, {handler: BookIndex}), 
-    React.createElement(Route, {name: "path-a", path: "/path-a", handler: PathA}), 
-    React.createElement(Route, {name: "path-b", path: "/path-b", handler: PathB})
+
+    React.createElement(Route, {name: "new", path: "/new", handler: BookNew}), 
+    React.createElement(Route, {name: "index", path: "/index", handler: BookIndex})
   )
 );
 
