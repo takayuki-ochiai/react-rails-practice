@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module '/Users/TakayukiOchiai/railsproject/react_rails_practice/app/assets/javascripts/app.jsx' from '/Users/TakayukiOchiai/railsproject/react_rails_practice'");

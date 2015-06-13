@@ -1,0 +1,27 @@
+{
+  "name": "react_rails_practice",
+  "version": "1.0.0",
+  "description": "== README",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "browserify -t reactify app/assets/javascripts/app.jsx > app/assets/javascripts/bundle.js",
+    "watch-js": "watchify -t reactify app/assets/javascripts/app.jsx -o app/assets/javascripts/bundle.js -v",
+    "start": "npm run watch-js & rails s"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^10.2.4",
+    "reactify": "^1.1.1",
+    "watchify": "^3.2.2"
+  },
+  "dependencies": {
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "react-tap-event-plugin": "^0.1.7"
+  }
+}
