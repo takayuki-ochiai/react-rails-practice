@@ -130,9 +130,10 @@ var BookNew = React.createClass({displayName: "BookNew",
       return;
     }
 
-    // $.post('/articles.json', {"article[comment]": comment, authenticity_token: AUTH_TOKEN}, function(article) {
-    //   this.transitionTo('show', params={id: article.id});
-    // }.bind(this));
+    var that = this;
+    $.post('/books.json', {"book[title]": title, "book[publish]": publish, "book[published]": published }, function(book) {
+      that.transitionTo('show', params={id: book.id});
+    }.bind(this));
 
     this.setState({ title: '', publish: '', published: '' })
     // this.refs.comment.getDOMNode().value = '';
