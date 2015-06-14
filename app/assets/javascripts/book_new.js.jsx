@@ -3,3 +3,5 @@ var BookNew = React.createClass({
     return (<div>New予定地</div>);
   }
 });
+
+module.exports = BookNew;

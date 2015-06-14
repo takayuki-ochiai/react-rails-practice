@@ -33,3 +33,5 @@ var BookIndex = React.createClass({
     );
   }
 });
+
+module.exports = BookIndex;

@@ -4,17 +4,9 @@ var Link = Router.Link;
 var DefaultRoute = Router.DefaultRoute;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
-
-var Header = React.createClass({
-  render() {
-    return (
-      <div className="header">
-        <div><Link to="index" >Index</Link></div>
-        <div><Link to="new" >New</Link></div>
-      </div>
-    );
-  }
-});
+var BookIndex = require('./book_index.jsx');
+var BookNew = require('./book_new.js.jsx');
+var Header = require('./header.jsx');
 
 
 var Root = React.createClass({
