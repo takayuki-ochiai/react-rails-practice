@@ -6,9 +6,6 @@ gem 'bootstrap-sass', '2.3.2.0'
 
 #React.js練習用
 gem 'slim-rails'
-gem 'react-rails', '~> 1.0'
-#Railsでreact-routerを使うためのgem
-gem 'react-router-rails', '~>0.11.6.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
