@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :destroy]
+  before_action :set_book, only: [:show, :destroy, :edit, :update]
   def index
     @books = Book.all
 
@@ -13,6 +13,10 @@ class BooksController < ApplicationController
     render json: @book
   end
 
+  def edit
+    render json: @book
+  end
+
   # POST /books
   def create
     @book = Book.new(book_params)
@@ -23,6 +27,12 @@ class BooksController < ApplicationController
   # DELETE /books/:id
   def destroy
     @book.destroy
+    render json: @book
+  end
+
+  # PATCH/PUT /books/:id
+  def update
+    @book.update(book_params)
     render json: @book
   end
 

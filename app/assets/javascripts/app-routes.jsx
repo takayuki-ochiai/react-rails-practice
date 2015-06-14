@@ -7,6 +7,7 @@ var RouteHandler = Router.RouteHandler;
 var BookIndex = require('./book_index.jsx');
 var BookNew = require('./book_new.js.jsx');
 var BookShow = require('./book_show.jsx')
+var BookEdit = require('./book_edit.jsx')
 var Header = require('./header.jsx');
 
 
@@ -36,7 +37,8 @@ var AppRoutes = (
     <DefaultRoute handler={BookIndex}/>
 
     <Route name="new" path="/new" handler={BookNew} />
-    // <Route name="show" path="/show/:id" handler={BookShow} />
+    <Route name="show" path="/show/:id" handler={BookShow} />
+    <Route name="edit" path="/edit/:id" handler={BookEdit} />
     <Route name="index" path="/index" handler={BookIndex} />
 
   </Route>
