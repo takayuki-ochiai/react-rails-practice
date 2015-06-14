@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: [:show]
   def index
     @books = Book.all
 
@@ -6,6 +7,10 @@ class BooksController < ApplicationController
       format.html
       format.json { render json: @books }
     end
+  end
+
+  def show
+    render json: @book
   end
 
   # POST /books
