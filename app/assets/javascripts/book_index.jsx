@@ -1,3 +1,7 @@
+var Router = require('react-router');
+var Link = Router.Link;
+var Navigation = Router.Navigation;
+
 var BookIndex = React.createClass({
   fetchBooks() {
     var that = this;
@@ -40,6 +44,8 @@ var BookIndex = React.createClass({
           <div className="book_id" ref="bookID">{book.id}</div>
           <div className="book_title" ref="title">{book.title}</div>
           <div className="book_publish">{book.publish}</div>
+          <div><Link to="show" params={{id: book.id}}>詳細を見る</Link></div>
+          <div><Link to="edit" params={{id: book.id}}>この書籍情報を更新する</Link></div>
           <input type="button" onClick={boundDelete} value="この本を削除" />
         </div>
       );

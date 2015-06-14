@@ -139,6 +139,10 @@ var BookEdit = React.createClass({displayName: "BookEdit",
 module.exports = BookEdit;
 
 },{"react-router":33}],4:[function(require,module,exports){
+var Router = require('react-router');
+var Link = Router.Link;
+var Navigation = Router.Navigation;
+
 var BookIndex = React.createClass({displayName: "BookIndex",
   fetchBooks() {
     var that = this;
@@ -181,6 +185,8 @@ var BookIndex = React.createClass({displayName: "BookIndex",
           React.createElement("div", {className: "book_id", ref: "bookID"}, book.id), 
           React.createElement("div", {className: "book_title", ref: "title"}, book.title), 
           React.createElement("div", {className: "book_publish"}, book.publish), 
+          React.createElement("div", null, React.createElement(Link, {to: "show", params: {id: book.id}}, "詳細を見る")), 
+          React.createElement("div", null, React.createElement(Link, {to: "edit", params: {id: book.id}}, "この書籍情報を更新する")), 
           React.createElement("input", {type: "button", onClick: boundDelete, value: "この本を削除"})
         )
       );
@@ -195,7 +201,7 @@ var BookIndex = React.createClass({displayName: "BookIndex",
 
 module.exports = BookIndex;
 
-},{}],5:[function(require,module,exports){
+},{"react-router":33}],5:[function(require,module,exports){
 var Router = require('react-router');
 var Link = Router.Link;
 var Navigation = Router.Navigation;
@@ -294,8 +300,8 @@ var Header = React.createClass({displayName: "Header",
   render() {
     return (
       React.createElement("div", {className: "header"}, 
-        React.createElement("div", null, React.createElement(Link, {to: "index"}, "Index")), 
-        React.createElement("div", null, React.createElement(Link, {to: "new"}, "New"))
+        React.createElement("span", null, React.createElement(Link, {to: "index"}, "書籍情報一覧    ")), 
+        React.createElement("span", null, React.createElement(Link, {to: "new"}, "書籍の新規登録    "))
       )
     );
   }
