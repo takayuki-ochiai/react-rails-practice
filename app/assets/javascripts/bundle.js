@@ -81,14 +81,32 @@ var BookIndex = React.createClass({displayName: "BookIndex",
   componentDidMount() {
     this.fetchBooks();
   },
+  deleteBook(id, title) {
+    debugger;
+    if (!confirm(`${title}を削除してもよろしいですか？`)) {
+      return;
+    }
+
+    var that = this;
+    $.ajax({
+      url: `/books/${id}`,
+      type: "DELETE",
+      data: {},
+      success: function() {
+        that.fetchBooks();
+      }.bind(this)
+    });
+  },
   render() {
     var rows =  [];
     this.state.books.forEach(function(book) {
+      var boundDelete = this.deleteBook.bind(this, book.id, book.title);
       rows.push(
         React.createElement("div", {className: "book_item"}, 
-          React.createElement("div", {className: "book_id"}, book.id), 
-          React.createElement("div", {className: "book_title"}, book.title), 
-          React.createElement("div", {className: "book_publish"}, book.publish)
+          React.createElement("div", {className: "book_id", ref: "bookID"}, book.id), 
+          React.createElement("div", {className: "book_title", ref: "title"}, book.title), 
+          React.createElement("div", {className: "book_publish"}, book.publish), 
+          React.createElement("input", {type: "button", onClick: boundDelete, value: "この本を削除"})
         )
       );
     }.bind(this));

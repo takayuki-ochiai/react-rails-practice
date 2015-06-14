@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show]
+  before_action :set_book, only: [:show, :destroy]
   def index
     @books = Book.all
 
@@ -15,9 +15,14 @@ class BooksController < ApplicationController
 
   # POST /books
   def create
-    binding.pry
     @book = Book.new(book_params)
     @book.save
+    render json: @book
+  end
+
+  # DELETE /books/:id
+  def destroy
+    @book.destroy
     render json: @book
   end
 
