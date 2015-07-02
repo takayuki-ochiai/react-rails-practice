@@ -16,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "^10.2.4",
+    "gulp": "^3.9.0",
     "reactify": "^1.1.1",
     "watchify": "^3.2.2"
   },
